@@ -8,7 +8,7 @@
                     using Pkg; Pkg.build(&quot;P4est&quot;; verbose=true)&#39;</code></pre><h2 id="Usage"><a class="docs-heading-anchor" href="#Usage">Usage</a><a id="Usage-1"></a><a class="docs-heading-anchor-permalink" href="#Usage" title="Permalink"></a></h2><p>In the Julia REPL, first load the package P4est.jl</p><pre><code class="language-julia">julia&gt; using P4est</code></pre><p>You can then access the full <a href="https://github.com/cburstedde/p4est">p4est</a> API that is defined by the headers. For example, to create a periodic connectivity and check its validity, execute the following lines:</p><pre><code class="language-julia-repl">julia&gt; using P4est
 
 julia&gt; conn_ptr = p4est_connectivity_new_periodic()
-Ptr{p4est_connectivity} @0x0000000002593210
+Ptr{p4est_connectivity} @0x000000000208b090
 
 julia&gt; p4est_connectivity_is_valid(conn_ptr)
 1
@@ -18,10 +18,10 @@ Into p4est_new with min quadrants 0 level 2 uniform 0
 New p4est with 1 trees on 1 processors
 Initial level 2 potential global quadrants 16 per tree 16
 Done p4est_new with 10 total quadrants
-Ptr{p4est} @0x000000000229ae10
+Ptr{p4est} @0x000000000198bbe0
 
 julia&gt; p4est_ = unsafe_wrap(p4est_ptr)
-p4est(mpicomm=0, mpisize=1, mpirank=0, mpicomm_owned=0, data_size=0x0000000000000000, user_pointer=Ptr{Nothing} @0x0000000000000000, revision=0, first_local_tree=0, last_local_tree=0, local_num_quadrants=10, global_num_quadrants=10, global_first_quadrant=Ptr{Int64} @0x000000000264cc50, global_first_position=Ptr{p4est_quadrant} @0x0000000002579240, connectivity=Ptr{p4est_connectivity} @0x0000000002593210, trees=Ptr{sc_array} @0x000000000269dc10, user_data_pool=Ptr{sc_mempool} @0x0000000000000000, quadrant_pool=Ptr{sc_mempool} @0x0000000001e4d3e0, inspect=Ptr{p4est_inspect} @0x0000000000000000)
+p4est(mpicomm=0, mpisize=1, mpirank=0, mpicomm_owned=0, data_size=0x0000000000000000, user_pointer=Ptr{Nothing} @0x0000000000000000, revision=0, first_local_tree=0, last_local_tree=0, local_num_quadrants=10, global_num_quadrants=10, global_first_quadrant=Ptr{Int64} @0x0000000002407970, global_first_position=Ptr{p4est_quadrant} @0x0000000001071040, connectivity=Ptr{p4est_connectivity} @0x000000000208b090, trees=Ptr{sc_array} @0x0000000002361080, user_data_pool=Ptr{sc_mempool} @0x0000000000000000, quadrant_pool=Ptr{sc_mempool} @0x00000000022474d0, inspect=Ptr{p4est_inspect} @0x0000000000000000)
 
 julia&gt; p4est_.connectivity == conn_ptr
 true
